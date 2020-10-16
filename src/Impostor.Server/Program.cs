@@ -20,6 +20,7 @@ namespace Impostor.Server
     {
         private static int Main(string[] args)
         {
+            DiscordBotHelper.init();
             Log.Logger = new LoggerConfiguration()
 #if DEBUG
                 .MinimumLevel.Verbose()

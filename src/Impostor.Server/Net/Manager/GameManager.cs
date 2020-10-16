@@ -54,6 +54,7 @@ namespace Impostor.Server.Net.Manager
 
             _nodeLocator.Save(gameCodeStr, _publicIp);
             _logger.LogDebug("Created game with code {0} ({1}).", game.Code, gameCode);
+            DiscordBotHelper.createGame(gameCode);
 
             await _eventManager.CallAsync(new GameCreatedEvent(game));
 
