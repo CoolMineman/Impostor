@@ -230,6 +230,26 @@ namespace Impostor.Server.Net.State
                         var objectNetId = reader.ReadPackedUInt32();
                         var callId = reader.ReadByte();
                         Logger.Verbose("> RPC {0} {1}", objectNetId, callId);
+
+                        if (callId == 2)
+                        {
+                            var length = reader.ReadPackedUInt32();
+                            var version = reader.ReadByte();
+                            var maxPlayers = reader.ReadByte();
+                            var language = reader.ReadUInt32();
+                            var map = reader.ReadByte();
+                            Logger.Verbose("> Map {0}", map);
+                        }
+
+                        if (callId == 14)
+                        {
+                            Logger.Verbose("Start Talking");
+                        }
+                        if (callId == 23)
+                        {
+                            Logger.Verbose("End Talking");
+                        }
+
                         break;
                     }
 
