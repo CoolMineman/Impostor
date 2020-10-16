@@ -123,6 +123,7 @@ namespace Impostor.Server.Net.Manager
 
             _logger.LogDebug("Remove game with code {0} ({1}).", GameCodeParser.IntToGameName(gameCode), gameCode);
             _nodeLocator.Remove(GameCodeParser.IntToGameName(gameCode));
+            DiscordBotHelper.deleteGame(GameCodeParser.IntToGameName(gameCode));
         }
     }
 }
